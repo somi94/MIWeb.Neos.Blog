@@ -1,0 +1,10 @@
+Neos:
+  Neos:
+    nodeTypes:
+      groups:
+        blog:
+          position: 'after plugins'
+          label: Blog
+    fusion:
+      autoInclude:
+        MIWeb.Neos.Blog: true
