@@ -1,4 +1,9 @@
 Neos:
+  Flow:
+    mvc:
+      routes:
+        'MIWeb.Neos.Blog':
+          position: 'before Neos.Neos'
   Neos:
     nodeTypes:
       groups:
