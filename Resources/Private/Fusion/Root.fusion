@@ -89,4 +89,4 @@ prototype(MIWeb.Neos.Blog:PostsOverview) < prototype(Neos.Neos:Content) {
     #includeContent = ${Configuration.setting('RobertLemke.Plugin.Blog.feed.includeContent')}
 #}
 
-prototype(MIWeb.Neos.Blog:Quote) < prototype(Neos.Neos:Content)
+#prototype(MIWeb.Neos.Blog:Quote) < prototype(Neos.Neos:Content)
