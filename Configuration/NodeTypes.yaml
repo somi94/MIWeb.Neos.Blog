@@ -1,0 +1,75 @@
+# Post overview to embed in any content collection
+'MIWeb.Neos.Blog:PostsOverview':
+  superTypes:
+    'Neos.Neos:Content': true
+  ui:
+    group: blog
+    label: 'Blog Posts Overview'
+    inspector:
+      groups:
+        blog:
+          label: 'Blog Posts Overview'
+          
+# Blog group page 
+'MIWeb.Neos.Blog:Blog':
+  superTypes:
+    'Neos.NodeTypes:Page': true
+  constraints:
+    nodeTypes:
+      '*': FALSE
+      'MIWeb.Neos.Blog:Post': TRUE
+      
+# Blog post page
+'MIWeb.Neos.Blog:Post':
+  superTypes:
+    'Neos.Neos:Document': true
+  ui:
+    label: 'Blog Post'
+    group: blog
+    icon: 'icon-file-text'
+    inspector:
+      groups:
+        page:
+          label: 'Blog Post'
+        moreinfo:
+          label: 'More Info'
+  properties:
+    datePublished:
+      type: DateTime
+      ui:
+        label: 'Publication Date'
+        reloadIfChanged: true
+        inspector:
+          group: page
+    author:
+      # TODO: detect current username
+      type: string
+      defaultValue: 'the root'
+      ui:
+        label: Author
+        inspector:
+          group: page
+    relatedPosts:
+      type: references
+      ui:
+        label: 'Related Posts'
+        inspector:
+          group: moreinfo
+          editorOptions:
+            nodeTypes: ['MIWeb.Neos.Blog:Post']
+    #categories:
+      #type: references
+      #ui:
+        #label: Categories
+        #inspector:
+          #group: moreinfo
+          #editorOptions:
+            #nodeTypes: ['MIWeb.Neos.Blog:Category']
+    #tags:
+      #type: references
+      #ui:
+        #label: Tags
+        #inspector:
+          #group: moreinfo
+          #editorOptions:
+            #nodeTypes: ['MIWeb.Neos.Blog:Tag']
