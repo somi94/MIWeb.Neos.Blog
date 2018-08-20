@@ -58,7 +58,7 @@ prototype(MIWeb.Neos.Blog:PostRenderer) < prototype(Neos.Fusion:Template) {
 #
 prototype(MIWeb.Neos.Blog:PostsOverview) < prototype(Neos.Neos:Content) {
     postsNode = ${q(node).closest('[instanceof Neos.Neos:Document]').get(0)}
-    #currentPage = ${request.pluginArguments.posts-paginator.currentPage}
+    currentPage = ${request.pluginArguments.posts-paginator.currentPage}
 
     #@cache {
         #mode = 'cached'
