@@ -1,3 +1,16 @@
+MIWeb:
+  Neos:
+    Blog:
+      notifications:
+        to:
+          email: ''
+          name: 'Blog Admin'
+      # this is deprecated and should be configured via TypoScript instead
+      #feed:
+        #title: 'The Neos Blog'
+        #description: 'A great, new - yet unconfigured - blog powered by Neos'
+        #uri: ''
+          #includeContent: false
 Neos:
   Flow:
     mvc:
