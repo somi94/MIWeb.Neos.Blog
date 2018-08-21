@@ -1,0 +1,19 @@
+#
+# List of most recent blog posts, including pagination
+#
+prototype(MIWeb.Neos.Blog:PostsOverview) < prototype(Neos.Neos:Content) {
+    postsNode = ${q(node).closest('[instanceof Neos.Neos:Document]').get(0)}
+    currentPage = ${request.pluginArguments.posts-paginator.currentPage}
+
+    #@cache {
+        #mode = 'cached'
+        #entryIdentifier {
+            #documentNode = ${node}
+            #currentPage = ${request.pluginArguments.posts-paginator.currentPage}
+        #}
+        #entryTags {
+            #1 = ${'Node_' + node.identifier}
+            #2 = ${'DescendantOf_' + q(node).property('_identifier')}
+        #}
+    #}
+}
