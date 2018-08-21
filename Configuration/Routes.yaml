@@ -1,4 +1,13 @@
 -
+  name: 'Blog post comment creation'
+  uriPattern:    'miweb/neos/blog/comments/create'
+  defaults:
+    '@package':    'MIWeb.Neos.Blog'
+    '@controller': 'Comment'
+    '@format': 'html'
+    '@action': 'create'
+
+-
   name: 'Blog post pagination default'
   uriPattern:    '{node}'
   defaults:
