@@ -1,5 +1,5 @@
 include: NodeTypes/*
 
-#prototype(Neos.Fusion:GlobalCacheIdentifiers).blogPostsPaginatorCurrentPage = ${request.pluginArguments.posts-paginator.currentPage}
+prototype(Neos.Fusion:GlobalCacheIdentifiers).blogPostsPaginatorCurrentPage = ${request.pluginArguments.posts-paginator.currentPage}
 
 #prototype(MIWeb.Neos.Blog:Quote) < prototype(Neos.Neos:Content)

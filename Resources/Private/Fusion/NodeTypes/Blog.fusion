@@ -1,0 +1,30 @@
+prototype(MIWeb.Neos.Blog:Blog) < prototype(Neos.NodeTypes:Page) {
+    head.stylesheets.blog = Neos.Fusion:Template {
+        templatePath = 'resource://MIWeb.Neos.Blog/Private/Templates/NodeTypes/Blog.html'
+        sectionName = 'styles'
+        node = ${node}
+        @position = 999999
+    }
+
+    body.javascripts.blog = Neos.Fusion:Template {
+        templatePath = 'resource://MIWeb.Neos.Blog/Private/Templates/NodeTypes/Blog.html'
+        sectionName = 'scripts'
+        node = ${node}
+        @position = 999999
+    }
+
+    body.content.main = MIWeb.Neos.Blog:BlogRenderer
+}
+
+prototype(MIWeb.Neos.Blog:BlogRenderer) < prototype(Neos.Fusion:Template) {
+    templatePath = 'resource://MIWeb.Neos.Blog/Private/Templates/NodeTypes/Blog.html'
+    sectionName = 'plugin'
+
+    main = Neos.Neos:ContentCollection {
+        nodePath = 'main'
+    }
+
+    posts = MIWeb.Neos.Blog:PostsOverview {
+        nodePath = 'posts'
+    }
+}

@@ -8,4 +8,4 @@ roles:
     privileges:
       -
         privilegeTarget: 'MIWeb.Neos.Blog:Frontend'
-permission: GRANT
+        permission: GRANT

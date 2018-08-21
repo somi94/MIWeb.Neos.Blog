@@ -24,6 +24,22 @@
 'MIWeb.Neos.Blog:Blog':
   superTypes:
     'Neos.NodeTypes:Page': true
+  childNodes:
+    posts:
+      type: 'MIWeb.Neos.Blog:PostsOverview'
+#      constraints:
+#        nodeTypes:
+#          '*': FALSE
+#          'Neos.NodeTypes:Headline': TRUE
+#          'Neos.NodeTypes:Text': TRUE
+#          'Neos.NodeTypes:TextWithImage': TRUE
+#          'Neos.NodeTypes:Image': TRUE
+#          'Neos.NodeTypes:Html': TRUE
+#          'Neos.NodeTypes:ContentReferences': TRUE
+#          'Neos.Demo:YouTube': TRUE
+#          'MIWeb.Neos.Slick:Slide': TRUE
+  ui:
+    label: 'Blog'
   constraints:
     nodeTypes:
       '*': FALSE
@@ -32,7 +48,23 @@
 # Blog post page
 'MIWeb.Neos.Blog:Post':
   superTypes:
-    'Neos.Neos:Document': true
+    'Neos.NodeTypes:Page': true
+  childNodes:
+    teaser:
+      type: 'Neos.Neos:ContentCollection'
+      constraints:
+        nodeTypes:
+          '*': true
+    main:
+      type: 'Neos.Neos:ContentCollection'
+      constraints:
+        nodeTypes:
+          '*': true
+    comments:
+      type: 'Neos.Neos:ContentCollection'
+      constraints:
+        nodeTypes:
+          '*': false
   ui:
     label: 'Blog Post'
     group: blog

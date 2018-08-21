@@ -1,5 +1,6 @@
 {namespace neos=Neos\Neos\ViewHelpers}
 {namespace cr=Neos\ContentRepository\ViewHelpers}
+{namespace blog=MIWeb\Neos\Blog\ViewHelpers}
 <f:comment>
 <script src="../../../Public/JavaScript/jquery.infinitescroll.min.js"></script>
 <script>
@@ -24,19 +25,35 @@
 </script>
 </f:comment>
 <div class="miweb-neos-blog" id="scrolling-container">
-	<cr:widget.paginate widgetId="posts-paginator" parentNode="{postsNode}" nodeTypeFilter="MIWeb.Neos.Blog:Post" as="paginatedPosts" configuration="{itemsPerPage: 5, insertBelow: 1, maximumNumberOfLinks: 15}">
+	<cr:widget.paginate
+			widgetId="posts-paginator"
+			parentNode="{postsNode}"
+			nodeTypeFilter="MIWeb.Neos.Blog:Post"
+			as="paginatedPosts"
+			configuration="{itemsPerPage: 5, insertBelow: 1, insertAbove: 1, maximumNumberOfLinks: 15, reverse: true}">
 		<ol class="posts">
+			<hr/>
 			<f:for each="{paginatedPosts}" as="post">
 				<li class="post">
+					<div class="post-meta">
+						<time datetime="{f:format.date(date: post.properties.datePublished, format: 'c')}" itemprop="datePublished">
+							<f:format.date format="F jS, Y" date="{post.properties.datePublished}"></f:format.date>
+						</time>
+					</div>
 					<h2>
-						<neos:link.node node="{post}">{post.properties.title}</neos:link.node>
-						<f:if condition="{post.removed}"> (removed)</f:if>
+						<neos:link.node node="{post}">
+							{post.properties.title}
+							<f:if condition="{post.removed}"> (removed)</f:if>
+						</neos:link.node>
 					</h2>
 					<p class="content">
-						<neos:link.node node="{post}" class="invisible-link">
-							<f:comment><blog:teaser node="{post}"/></f:comment> Display teaser here...
-						</neos:link.node> <neos:link.node node="{post}" class="read-more"><f:translate package="MIWeb.Neos.Blog">Read more</f:translate></neos:link.node>
+						<blog:teaser node="{post}"/>
 					</p>
+					<div class="read-more-wrapper">
+						<neos:link.node node="{post}" class="read-more">
+							<f:translate package="MIWeb.Neos.Blog">Read more</f:translate>
+						</neos:link.node>
+					</div>
 				</li>
 				<hr/>
 			</f:for>

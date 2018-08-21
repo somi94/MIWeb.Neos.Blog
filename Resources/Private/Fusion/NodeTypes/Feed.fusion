@@ -1,15 +1,15 @@
 #
 # RSS feed
 #
-#prototype(MIWeb.Neos.Blog:Feed) < prototype(Neos.Neos:Plugin) {
-    #package = 'MIWeb.Neos.Blog'
-    #controller = 'Post'
-    #action = 'rss'
-
-    #postsNode = ${q(documentNode).parent().get(0)}
-
-    #feedTitle = ${Configuration.setting('MIWeb.Neos.Blog.feed.title')}
-    #feedDescription = ${Configuration.setting('MIWeb.Neos.Blog.feed.description')}
-    #feedUri = ${Configuration.setting('MIWeb.Neos.Blog.feed.uri')}
-    #includeContent = ${Configuration.setting('MIWeb.Neos.Blog.feed.includeContent')}
-#}
+//prototype(MIWeb.Neos.Blog:Feed) < prototype(Neos.Neos:Plugin) {
+//    package = 'MIWeb.Neos.Blog'
+//    controller = 'Post'
+//    action = 'rss'
+//
+//    postsNode = ${q(documentNode).parent().get(0)}
+//
+//    feedTitle = ${Configuration.setting('MIWeb.Neos.Blog.feed.title')}
+//    feedDescription = ${Configuration.setting('MIWeb.Neos.Blog.feed.description')}
+//    feedUri = ${Configuration.setting('MIWeb.Neos.Blog.feed.uri')}
+//    includeContent = ${Configuration.setting('MIWeb.Neos.Blog.feed.includeContent')}
+//}

@@ -1,7 +1,7 @@
 <?php
 namespace MIWeb\Neos\Blog\Controller;
 
-//use RobertLemke\Akismet\Service;
+use RobertLemke\Akismet\Service;
 use Neos\Flow\Annotations as Flow;
 use Neos\Flow\Mvc\Controller\ActionController;
 use Neos\ContentRepository\Domain\Model\NodeInterface;
@@ -12,30 +12,29 @@ use Neos\ContentRepository\Domain\Model\NodeTemplate;
  */
 class CommentController extends ActionController
 {
-//    /**
-//     * @Flow\Inject
-//     * @var Service
-//     */
-//    protected $akismetService;
+    /**
+     * @Flow\Inject
+     * @var Service
+     */
+    protected $akismetService;
 
     /**
      * Initialize the Akismet service
      *
      * @return void
      */
-    protected function initializeAction()
-    {
-//        $this->akismetService->setCurrentRequest($this->request->getHttpRequest());
+    protected function initializeAction() {
+        $this->akismetService->setCurrentRequest($this->request->getHttpRequest());
     }
+
     /**
      * Creates a new comment
      *
      * @param NodeInterface $postNode The post node which will contain the new comment
-     * @param NodeTemplate<RobertLemke.Plugin.Blog:Comment> $newComment
+     * @param NodeTemplate<MIWeb.Neos.Blog:Comment> $newComment
      * @return string
      */
-    public function createAction(NodeInterface $postNode, NodeTemplate $newComment)
-    {
+    public function createAction(NodeInterface $postNode, NodeTemplate $newComment) {
         # Workaround until we can validate node templates properly:
         if (strlen($newComment->getProperty('author')) < 2) {
             $this->throwStatus(400, 'Your comment was NOT created - please specify your name.');
@@ -52,9 +51,9 @@ class CommentController extends ActionController
         $commentNode = $postNode->getNode('comments')->createNodeFromTemplate($newComment, uniqid('comment-'));
         $commentNode->setProperty('spam', false);
         $commentNode->setProperty('datePublished', new \DateTime());
-//        if ($this->akismetService->isCommentSpam('', $commentNode->getProperty('text'), 'comment', $commentNode->getProperty('author'), $commentNode->getProperty('emailAddress'))) {
-//            $commentNode->setProperty('spam', true);
-//        }
+        if ($this->akismetService->isCommentSpam('', $commentNode->getProperty('text'), 'comment', $commentNode->getProperty('author'), $commentNode->getProperty('emailAddress'))) {
+            $commentNode->setProperty('spam', true);
+        }
         $this->emitCommentCreated($commentNode, $postNode);
         $this->response->setStatus(201);
         return 'Thank you for your comment!';
@@ -68,7 +67,6 @@ class CommentController extends ActionController
      * @return void
      * @Flow\Signal
      */
-    protected function emitCommentCreated(NodeInterface $commentNode, NodeInterface $postNode)
-    {
+    protected function emitCommentCreated(NodeInterface $commentNode, NodeInterface $postNode) {
     }
 }
