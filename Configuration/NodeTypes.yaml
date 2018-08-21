@@ -1,3 +1,13 @@
+'Neos.Neos:Document':
+  constraints:
+    nodeTypes:
+      'MIWeb.Neos.Blog:Post': false
+    
+'Neos.Neos:ContentCollection':
+  constraints:
+    nodeTypes:
+      'MIWeb.Neos.Blog:Comment': false
+      
 # Post overview to embed in any content collection
 'MIWeb.Neos.Blog:PostsOverview':
   superTypes:
