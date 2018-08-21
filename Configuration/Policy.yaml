@@ -1,0 +1,11 @@
+privilegeTargets:
+  Neos\Flow\Security\Authorization\Privilege\Method\MethodPrivilege:
+    'MIWeb.Neos.Blog:Frontend':
+      matcher: 'method(MIWeb\Neos\Blog\Controller\PostController->(index|rss)Action()) || method(MIWeb\Neos\Blog\Controller\CommentController->(create|error)Action()) || method(Neos\ContentRepository\ViewHelpers\Widget\Controller\PaginateController->.*())'
+
+roles:
+  'Neos.Flow:Everybody':
+    privileges:
+      -
+        privilegeTarget: 'MIWeb.Neos.Blog:Frontend'
+permission: GRANT
