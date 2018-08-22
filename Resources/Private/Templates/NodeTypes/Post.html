@@ -36,7 +36,7 @@
 					<span itemprop="author" itemscope="" itemtype="http://schema.org/Person"><span itemprop="name">{author}</span></span></f:if><f:if condition="{author} && {datePublished}">,
 				</f:if><f:if condition="{datePublished}">
 					<time datetime="{f:format.date(date: datePublished, format: 'c')}" itemprop="datePublished">
-						<f:format.date format="{f:translate(package: 'MIWeb.Neos.Blog', id: 'dateFormat')}" date="{datePublished}"></f:format.date>
+						<f:format.date format="{f:translate(package: 'MIWeb.Neos.Blog', id: 'dateFormat', value: 'F jS, Y')}" date="{datePublished}"></f:format.date>
 					</time>
 				</f:if>
 			</div>
