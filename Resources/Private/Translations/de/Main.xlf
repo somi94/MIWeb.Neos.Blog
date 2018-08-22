@@ -204,6 +204,10 @@
                 <source>Filed under:</source>
                 <target>Abgelegt in:</target>
             </trans-unit>
+            <trans-unit id="49">
+                <source>Message &lt;span class="required"&gt;*&lt;/span&gt;</source>
+                <target>Nachricht &lt;span class="required"&gt;*&lt;/span&gt;</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

@@ -154,6 +154,9 @@
             <trans-unit id="48">
                 <source>Filed under:</source>
             </trans-unit>
+            <trans-unit id="49">
+                <source>Message &lt;span class="required"&gt;*&lt;/span&gt;</source>
+            </trans-unit>
         </body>
     </file>
 </xliff>
