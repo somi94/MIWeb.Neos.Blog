@@ -32,7 +32,6 @@
 			as="paginatedPosts"
 			configuration="{itemsPerPage: 5, insertBelow: 1, insertAbove: 1, maximumNumberOfLinks: 15, reverse: true}">
 		<ol class="posts">
-			<hr/>
 			<f:for each="{paginatedPosts}" as="post">
 				<li class="post">
 					<div class="post-meta">
@@ -55,7 +54,6 @@
 						</neos:link.node>
 					</div>
 				</li>
-				<hr/>
 			</f:for>
 		</ol>
 		{pagination.numberOfPages}
