@@ -65,6 +65,7 @@
       constraints:
         nodeTypes:
           '*': false
+          'MIWeb.Neos.Blog:Comment': true
   ui:
     label: 'Blog Post'
     group: blog
