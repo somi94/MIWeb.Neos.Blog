@@ -32,12 +32,13 @@
 		<header>
 			<h1 itemprop="name headline"><neos:contentElement.editable tag="span" property="title">{title}</neos:contentElement.editable></h1>
 			<div class="byline">
-				by
-				<span itemprop="author" itemscope="" itemtype="http://schema.org/Person"><span itemprop="name">{author}</span></span>
-				on
-				<time datetime="{f:format.date(date: datePublished, format: 'c')}" itemprop="datePublished">
-					<f:format.date format="F jS, Y" date="{datePublished}"></f:format.date>
-				</time>
+				<f:if condition="{author}">
+					<span itemprop="author" itemscope="" itemtype="http://schema.org/Person"><span itemprop="name">{author}</span></span></f:if><f:if condition="{author} && {datePublished}">,
+				</f:if><f:if condition="{datePublished}">
+					<time datetime="{f:format.date(date: datePublished, format: 'c')}" itemprop="datePublished">
+						<f:format.date format="{f:translate(package: 'MIWeb.Neos.Blog', id: 'dateFormat')}" date="{datePublished}"></f:format.date>
+					</time>
+				</f:if>
 			</div>
 		</header>
 		<div itemprop="articleBody">
